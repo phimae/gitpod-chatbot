@@ -1,0 +1,19 @@
+image: python:3.8
+
+# List the ports you want to expose
+ports:
+  - 8888
+
+# List the tools you want to install
+# Add any additional packages you need here
+# The `--upgrade` flag ensures the latest version is installed
+tasks:
+  - command: pip install --upgrade pip
+  - command: pip install openai
+  - command: pip install --upgrade openai
+  - command: pip install virtualenv
+  - command: pip install jupyterlab
+  - command: jupyter notebook --ip 0.0.0.0 --no-browser
+  - command: pip install flask
+
+

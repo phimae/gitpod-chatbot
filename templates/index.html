@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot Interface</title>
+  </head>
+  <body>
+    <h1>Chatbot Interface</h1>
+    <form>
+      <label for="message">Message:</label>
+      <input type="text" id="message" name="message"><br><br>
+      <button type="submit" onclick="getResponse()">Send</button>
+    </form>
+    <br>
+    <p>Response:</p>
+    <p id="response"></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function getResponse() {
+        var message = $("#message").val();
+        $.ajax({
+          type: "POST",
+          url: "/chatbot",
+          contentType: "application/json",
+          data: JSON.stringify({message: message}),
+          dataType: "json",
+          success: function(response) {
+            $("#response").text(response.answer);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
