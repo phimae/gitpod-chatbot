@@ -1,0 +1,1 @@
+[{"role": "system", "content": "You are a helpful assistant that answers questions about Gitpod based on the official documentation."},{"role": "user", "content": "How do I configure environment variables in Gitpod?"}]
